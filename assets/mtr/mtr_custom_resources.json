@@ -1,0 +1,525 @@
+{
+	"custom_signs": {
+		"Airport": {
+			"texture_id": "mtr:custom_directory/airport.png",
+			"small": true,
+			"background_color": "#003274"
+		},
+		"Baby change": {
+			"texture_id": "mtr:custom_directory/baby-change.png",
+			"small": true,
+			"background_color": "#003274"
+		},
+		"Bikes": {
+			"texture_id": "mtr:custom_directory/bike.png",
+			"small": true,
+			"background_color": "#003274"
+		},
+		"Blank": {
+			"texture_id": "mtr:custom_directory/blank.png",
+			"background_color": "#003274"
+		},
+		"Bureau de Change": {
+			"texture_id": "mtr:custom_directory/bureau-de-change.png",
+			"small": true,
+			"background_color": "#003274"
+		},
+		"Buses": {
+			"texture_id": "mtr:custom_directory/bus.png",
+			"small": true,
+			"background_color": "#003274"
+		},
+		"Café": {
+			"texture_id": "mtr:custom_directory/cafe.png",
+			"small": true,
+			"background_color": "#003274"
+		},
+		"Car Hire": {
+			"texture_id": "mtr:custom_directory/car-hire.png",
+			"small": true,
+			"background_color": "#003274"
+		},
+		"Car Park": {
+			"texture_id": "mtr:custom_directory/car-park.png",
+			"small": true,
+			"background_color": "#003274"
+		},
+		"ATM": {
+			"texture_id": "mtr:custom_directory/cash-machine.png",
+			"small": true,
+			"background_color": "#003274"
+		},
+		"Cycle Hire": {
+			"texture_id": "mtr:custom_directory/cycle-hire.png",
+			"small": true,
+			"background_color": "#003274"
+		},
+		"Cycle Parking": {
+			"texture_id": "mtr:custom_directory/cycle-parking.png",
+			"small": true,
+			"background_color": "#003274"
+		},
+		"Escalator": {
+			"texture_id": "mtr:custom_directory/escalator.png",
+			"small": true,
+			"background_color": "#003274"
+		},
+		"Ferry": {
+			"texture_id": "mtr:custom_directory/ferry.png",
+			"small": true,
+			"background_color": "#003274"
+		},
+		"First Aid": {
+			"texture_id": "mtr:custom_directory/first-aid.png",
+			"small": true,
+			"background_color": "#003274"
+		},
+		"First Class Lounge": {
+			"texture_id": "mtr:custom_directory/first-class-lounge.png",
+			"small": true,
+			"background_color": "#003274"
+		},
+		"Footbridge": {
+			"texture_id": "mtr:custom_directory/footbridge.png",
+			"small": true,
+			"background_color": "#003274"
+		},
+		"Hotel": {
+			"texture_id": "mtr:custom_directory/hotel.png",
+			"small": true,
+			"background_color": "#003274"
+		},
+		"Information": {
+			"texture_id": "mtr:custom_directory/information.png",
+			"small": true,
+			"background_color": "#003274"
+		},
+		"Woman": {
+			"texture_id": "mtr:custom_directory/lady.png",
+			"small": true,
+			"background_color": "#003274"
+		},
+		"Lift": {
+			"texture_id": "mtr:custom_directory/lift.png",
+			"small": true,
+			"background_color": "#003274"
+		},
+		"litter": {
+			"texture_id": "mtr:custom_directory/litter.png",
+			"small": true,
+			"background_color": "#003274"
+		},
+		"Luggage Locker": {
+			"texture_id": "mtr:custom_directory/locker.png",
+			"small": true,
+			"background_color": "#003274"
+		},
+		"Lost Property": {
+			"texture_id": "mtr:custom_directory/lost-property.png",
+			"small": true,
+			"background_color": "#003274"
+		},
+		"Lounge": {
+			"texture_id": "mtr:custom_directory/lounge.png",
+			"small": true,
+			"background_color": "#003274"
+		},
+		"Man": {
+			"texture_id": "mtr:custom_directory/man.png",
+			"small": true,
+			"background_color": "#003274"
+		},
+		"Meeting Point": {
+			"texture_id": "mtr:custom_directory/meeting-point.png",
+			"small": true,
+			"background_color": "#003274"
+		},
+		"No Entry": {
+			"texture_id": "mtr:custom_directory/no-entry.png",
+			"small": true,
+			"background_color": "#003274"
+		},
+		"Pedestrians": {
+			"texture_id": "mtr:custom_directory/pedestrian.png",
+			"small": true,
+			"background_color": "#003274"
+		},
+		"Telephone": {
+			"texture_id": "mtr:custom_directory/phone.png",
+			"small": true,
+			"background_color": "#003274"
+		},
+		"Pick-up Point": {
+			"texture_id": "mtr:custom_directory/pick-up.png",
+			"small": true,
+			"background_color": "#003274"
+		},
+		"Post": {
+			"texture_id": "mtr:custom_directory/post.png",
+			"small": true,
+			"background_color": "#003274"
+		},
+		"Multi-faith Room": {
+			"texture_id": "mtr:custom_directory/prayer.png",
+			"small": true,
+			"background_color": "#003274"
+		},
+		"Pushchairs": {
+			"texture_id": "mtr:custom_directory/pushchair.png",
+			"small": true,
+			"background_color": "#003274"
+		},
+		"Wheelchair Ramp": {
+			"texture_id": "mtr:custom_directory/ramp.png",
+			"small": true,
+			"background_color": "#003274"
+		},
+		"Station Reception": {
+			"texture_id": "mtr:custom_directory/reception.png",
+			"small": true,
+			"background_color": "#003274"
+		},
+		"Shops": {
+			"texture_id": "mtr:custom_directory/shopping.png",
+			"small": true,
+			"background_color": "#003274"
+		},
+		"Showers": {
+			"texture_id": "mtr:custom_directory/shower.png",
+			"small": true,
+			"background_color": "#003274"
+		},
+		"Stairs": {
+			"texture_id": "mtr:custom_directory/stairs.png",
+			"small": true,
+			"background_color": "#003274"
+		},
+		"Taxis": {
+			"texture_id": "mtr:custom_directory/taxi.png",
+			"small": true,
+			"background_color": "#003274"
+		},
+		"Tickets": {
+			"texture_id": "mtr:custom_directory/tickets.png",
+			"small": true,
+			"background_color": "#003274"
+		},
+		"Toilets": {
+			"texture_id": "mtr:custom_directory/toilets.png",
+			"small": true,
+			"background_color": "#003274"
+		},
+		"Trains": {
+			"texture_id": "mtr:custom_directory/train.png",
+			"small": true,
+			"background_color": "#003274"
+		},
+		"Trams": {
+			"texture_id": "mtr:custom_directory/tram.png",
+			"small": true,
+			"background_color": "#003274"
+		},
+		"Travelator": {
+			"texture_id": "mtr:custom_directory/travelator.png",
+			"small": true,
+			"background_color": "#003274"
+		},
+		"Luggage Trolleys": {
+			"texture_id": "mtr:custom_directory/trolleys.png",
+			"small": true,
+			"background_color": "#003274"
+		},
+		"Way Out": {
+			"texture_id": "mtr:custom_directory/way-out.png",
+			"small": true,
+			"background_color": "#003274"
+		},
+		"Wheelchairs": {
+			"texture_id": "mtr:custom_directory/wheelchair.png",
+			"small": true,
+			"background_color": "#003274"
+		},
+		"Airport (Text)": {
+			"texture_id": "mtr:custom_directory/airport.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Airport"
+		},
+		"Baby change (Text)": {
+			"texture_id": "mtr:custom_directory/baby-change.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Baby Change"
+		},
+		"Bikes (Text)": {
+			"texture_id": "mtr:custom_directory/bike.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Bikes"
+		},
+		"Bureau de Change (Text)": {
+			"texture_id": "mtr:custom_directory/bureau-de-change.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Bureau de Change"
+		},
+		"Buses (Text)": {
+			"texture_id": "mtr:custom_directory/bus.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Buses"
+		},
+		"Café (Text)": {
+			"texture_id": "mtr:custom_directory/cafe.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Café"
+		},
+		"Car Hire (Text)": {
+			"texture_id": "mtr:custom_directory/car-hire.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Car Hire"
+		},
+		"Car Park (Text)": {
+			"texture_id": "mtr:custom_directory/car-park.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Car Park"
+		},
+		"ATM (Text)": {
+			"texture_id": "mtr:custom_directory/cash-machine.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "ATM"
+		},
+		"Cycle Hire (Text)": {
+			"texture_id": "mtr:custom_directory/cycle-hire.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Bike Hire"
+		},
+		"Cycle Parking (Text)": {
+			"texture_id": "mtr:custom_directory/cycle-parking.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Bike Parking"
+		},
+		"Escalator (Text)": {
+			"texture_id": "mtr:custom_directory/escalator.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Escalator"
+		},
+		"Ferry (Text)": {
+			"texture_id": "mtr:custom_directory/ferry.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Ferry"
+		},
+		"First Aid (Text)": {
+			"texture_id": "mtr:custom_directory/first-aid.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "First Aid"
+		},
+		"First Class Lounge (Text)": {
+			"texture_id": "mtr:custom_directory/first-class-lounge.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "First-class Lounge"
+		},
+		"Footbridge (Text)": {
+			"texture_id": "mtr:custom_directory/footbridge.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Footbridge"
+		},
+		"Hotel (Text)": {
+			"texture_id": "mtr:custom_directory/hotel.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Hotel"
+		},
+		"Information (Text)": {
+			"texture_id": "mtr:custom_directory/information.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Information"
+		},
+		"Woman (Text)": {
+			"texture_id": "mtr:custom_directory/lady.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Women's Toilet"
+		},
+		"Lift (Text)": {
+			"texture_id": "mtr:custom_directory/lift.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Lift"
+		},
+		"litter (Text)": {
+			"texture_id": "mtr:custom_directory/litter.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Litter"
+		},
+		"Luggage Locker (Text)": {
+			"texture_id": "mtr:custom_directory/locker.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Luggage Lockers"
+		},
+		"Lost Property (Text)": {
+			"texture_id": "mtr:custom_directory/lost-property.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Lost Property"
+		},
+		"Lounge (Text)": {
+			"texture_id": "mtr:custom_directory/lounge.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Waiting Lounge"
+		},
+		"Man (Text)": {
+			"texture_id": "mtr:custom_directory/man.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Men's Toilet"
+		},
+		"Meeting Point (Text)": {
+			"texture_id": "mtr:custom_directory/meeting-point.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Meeting Point"
+		},
+		"No Entry (Text)": {
+			"texture_id": "mtr:custom_directory/no-entry.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "No Entry"
+		},
+		"Pedestrians (Text)": {
+			"texture_id": "mtr:custom_directory/pedestrian.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Pedestrians"
+		},
+		"Telephone (Text)": {
+			"texture_id": "mtr:custom_directory/phone.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Telephone"
+		},
+		"Pick-up Point (Text)": {
+			"texture_id": "mtr:custom_directory/pick-up.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Pick-up Point"
+		},
+		"Post (Text)": {
+			"texture_id": "mtr:custom_directory/post.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Post Office"
+		},
+		"Multi-faith Room (Text)": {
+			"texture_id": "mtr:custom_directory/prayer.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Prayer Room"
+		},
+		"Pushchairs (Text)": {
+			"texture_id": "mtr:custom_directory/pushchair.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Pushchairs"
+		},
+		"Wheelchair Ramp (Text)": {
+			"texture_id": "mtr:custom_directory/ramp.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Wheelchair Ramp"
+		},
+		"Station Reception (Text)": {
+			"texture_id": "mtr:custom_directory/reception.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Reception"
+		},
+		"Shops (Text)": {
+			"texture_id": "mtr:custom_directory/shopping.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Shops"
+		},
+		"Showers (Text)": {
+			"texture_id": "mtr:custom_directory/shower.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Showers"
+		},
+		"Stairs (Text)": {
+			"texture_id": "mtr:custom_directory/stairs.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Stairs"
+		},
+		"Taxis (Text)": {
+			"texture_id": "mtr:custom_directory/taxi.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Taxis"
+		},
+		"Tickets (Text)": {
+			"texture_id": "mtr:custom_directory/tickets.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Tickets"
+		},
+		"Toilets (Text)": {
+			"texture_id": "mtr:custom_directory/toilets.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Toilets"
+		},
+		"Trains (Text)": {
+			"texture_id": "mtr:custom_directory/train.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Trains"
+		},
+		"Trams (Text)": {
+			"texture_id": "mtr:custom_directory/tram.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Trams"
+		},
+		"Travelator (Text)": {
+			"texture_id": "mtr:custom_directory/travelator.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Travelator"
+		},
+		"Luggage Trolleys (Text)": {
+			"texture_id": "mtr:custom_directory/trolleys.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Luggage Trolleys"
+		},
+		"Way Out (Text)": {
+			"texture_id": "mtr:custom_directory/way-out.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Way Out"
+		},
+			"Disabled Toilet (Text)": {
+			"texture_id": "mtr:custom_directory/wheelchair.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Disabled Toilet"
+		}
+	}
+}

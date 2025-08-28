@@ -1,0 +1,8 @@
+{
+  "pack": {
+    "pack_format": 9,
+	"supported_formats": {"min_inclusive":6, "max_inclusive": 34},
+    "description": "V2.1.0 Adds UK train station signs to the MTR mod! (Credits: ProbablyIdiot + Bri'ish2)"
+	
+  }
+}
