@@ -1,0 +1,7 @@
+{
+  "pack": {
+    "pack_format": 15,
+	"supported_formats": {"min_inclusive":6, "max_inclusive": 81},
+    "description": "Adds UK signs and PIDS to the MTR and JCM mods. (Credits: ProbablyIdiot, Bri'ish2 & BitOne)"
+  }
+}

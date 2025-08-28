@@ -1,0 +1,10 @@
+{
+	"uk_sign": {
+        "name": "British Rail logo",
+        "model": "mtrsteamloco:eyecandies/nr_sign.obj",
+        "translation": [ 0, 0, 0 ],
+        "rotation": [ 0, 0, 0 ],
+        "scale": [ 1, 1, 1 ],
+        "mirror": [ false, false, false ]
+    }
+}

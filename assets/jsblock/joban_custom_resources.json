@@ -1,0 +1,19 @@
+{
+  "pids_images": [
+    {
+      "id": "departure1a",
+      "name": "Type 1 Departure Board (A)",
+      "scriptFiles": ["jsblock:scripts/departure1a.js"]
+    },
+	{
+      "id": "departure1b",
+      "name": "Type 1 Departure Board (B)",
+      "scriptFiles": ["jsblock:scripts/departure1b.js"]
+    },
+	{
+      "id": "departure2a",
+      "name": "Type 2 Departure Board (A)",
+      "scriptFiles": ["jsblock:scripts/departure2a.js"]
+    }
+  ]
+}
