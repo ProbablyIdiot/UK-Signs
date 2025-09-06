@@ -1,13 +1,7 @@
-let boardNum = 1;
+//let boardNum = 1;
 
 function create(ctx, state, pids) {
-	let userInput = pids.getCustomMessage(0);
-	if (!isNaN(userInput)) {
-		userInput = Number(userInput);
-		if (userInput > 0) {
-			boardNum = userInput;
-		}
-	}
+	
 }
 
 function render(ctx, state, pids) {
@@ -45,7 +39,8 @@ function lcdBackgrounds(ctx, state, pids) {
 
 function depatures(ctx, state, pids) {
 	let i2 = 0; //i2 is used for positioning due to i being artificially higher
-	
+	boardNum = getBoardNum(pids);
+
 	for (
 			let i = ((boardNum * 8)- 4);
 			i < (boardNum * 8);
@@ -74,7 +69,7 @@ function depatures(ctx, state, pids) {
 				schedueledDepMins = String(estDepMins - depDeviationMins).padStart(2, "0");
 			}
 
-			if (i > 4) {
+			if (i > (boardNum * 8) - 4) { //Remove top line of first departure, in order to align with board 1a
 				Text.create("Departure time")
 				.text(schedueledDepHrs + ":" + schedueledDepMins)
 				.pos(6, -5.8 + (i2 * 15)) //Set row pos, 1s = outer margin, (i2*15) = num of rows * row height 
@@ -99,12 +94,12 @@ function depatures(ctx, state, pids) {
 			let delayIndicator = "On Time"
 
 			if (depDeviationMins > 1) {
-				delayIndicator = "Expt" + formatEstDepHrs + ":" + formatEstDepMins
+				delayIndicator = "Expt " + formatEstDepHrs + ":" + formatEstDepMins
 			}
 
 			Text.create("On Time/Expected")
 			.text(delayIndicator)
-			.pos(22.5, 1.55 + (i2 * 15)) //Set row pos, 1s = outer margin, (i2*15) = num of rows * row height 
+			.pos(20.5, 1.55 + (i2 * 15)) //Set row pos, 1s = outer margin, (i2*15) = num of rows * row height 
 			.scale(0.6)
 			.font("minecraft:ukpids")
 			.color(0xff9900)
@@ -123,4 +118,18 @@ function depatures(ctx, state, pids) {
 		i2 = i2 + 1;
 	}
 
+}
+
+function getBoardNum (pids) {
+	let userInput = pids.getCustomMessage(0);
+	if (!isNaN(userInput)) {
+		userInput = Number(userInput);
+		if (userInput > 0) {
+			return userInput;
+		} else {
+			return 1;
+		}
+	} else {
+		return 1;
+	}
 }

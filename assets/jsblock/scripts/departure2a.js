@@ -18,14 +18,9 @@ function render(ctx, state, pids) {
 
 	topBackgrounds(ctx, state, pids);
 
-	getDeparture(ctx, state, pids);
+	departure(ctx, state, pids);
 
-	Text.create()
-	.text(pids.getCustomMessage(0))
-	.scale(0.6)
-	.font("minecraft:ukpids")
-	.color(0xff9900)
-	.draw(ctx);
+	
 }
 
 function dispose(ctx, state, pids) {
@@ -52,6 +47,12 @@ function topBackgrounds(ctx, state, pids) {
 	}
 }
 
-function getDeparture(ctx, state, pids) {
-	let b =0
+function departure(ctx, state, pids) {
+	Text.create()
+	.text("London Euston")
+	.scale(0.75)
+	.font("minecraft:lumedium")
+	.color(0xff9900)
+	.pos(5.8, 9.8)
+	.draw(ctx);
 }

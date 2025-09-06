@@ -44,8 +44,14 @@ function lcdBackgrounds(ctx, state, pids) {
 }
 
 function depatures(ctx, state, pids) {
-	
-	for (let i = 0; i < 5; i++) {
+	let i2 = 0; //i2 is used for positioning due to i being artificially higher
+	boardNum = getBoardNum(pids);
+
+	for (
+			let i = ((boardNum * 8 )- 8);
+			i < ((boardNum * 8) - 3);
+			i++) 
+		{
 		let arrival = pids.arrivals().get(i);
 		if (arrival != null){
 			let arrivalDest = TextUtil.cycleString(arrival.destination()); //Extracts destination from arrival and sets language
@@ -70,7 +76,7 @@ function depatures(ctx, state, pids) {
 
 			Text.create("Departure time")
 			.text(schedueledDepHrs + ":" + schedueledDepMins)
-			.pos(6, 10 + (i * 15)) //Set row pos, 1s = outer margin, (i*15) = num of rows * row height 
+			.pos(6, 10 + (i2 * 15)) //Set row pos, 1s = outer margin, (i*15) = num of rows * row height 
 			.scale(0.6)
 			.font("minecraft:ukpids")
 			.color(0xff9900)
@@ -80,7 +86,7 @@ function depatures(ctx, state, pids) {
 			.text(arrivalDest)
 			.marquee()
 			.size(75.5, 6)
-			.pos(22.5, 10 + (i * 15)) //Set row pos, 1s = outer margin, (i*15) = num of rows * row height 
+			.pos(22.5, 10 + (i2 * 15)) //Set row pos, 1s = outer margin, (i*15) = num of rows * row height 
 			.scale(0.6)
 			.font("minecraft:ukpids")
 			.color(0xff9900)
@@ -91,13 +97,13 @@ function depatures(ctx, state, pids) {
 			let delayIndicator = "On Time"
 
 			if (depDeviationMins > 1) {
-				delayIndicator = "Expt" + formatEstDepHrs + ":" + formatEstDepMins
+				delayIndicator = "Expt " + formatEstDepHrs + ":" + formatEstDepMins
 			}
 
-			if (i < 4) {
+			if (i < (boardNum * 8)- 4) {//Remove bottom line of last departure to line up with board 1b
 				Text.create("On Time/Expected")
 				.text(delayIndicator)
-				.pos(22.5, 18.25 + (i * 15)) //Set row pos, 1s = outer margin, (i*15) = num of rows * row height 
+				.pos(20.5, 18.25 + (i2 * 15)) //Set row pos, 1s = outer margin, (i*15) = num of rows * row height 
 				.scale(0.6)
 				.font("minecraft:ukpids")
 				.color(0xff9900)
@@ -106,13 +112,31 @@ function depatures(ctx, state, pids) {
 				Text.create("Platform")
 				.text("Plat " + arrival.platformName())
 				.rightAlign()
-				.pos(70.4, 18.25 + (i * 15)) //Set row pos, 1s = outer margin, (i*15) = num of rows * row height 
+				.pos(70.4, 18.25 + (i2 * 15)) //Set row pos, 1s = outer margin, (i*15) = num of rows * row height 
 				.scale(0.6)
 				.font("minecraft:ukpids")
 				.color(0xff9900)
 				.draw(ctx);
 			}
+
 		}
+		
+		i2 = i2 + 1;
 	}
 
+}
+
+
+function getBoardNum (pids) {
+	let userInput = pids.getCustomMessage(0);
+	if (!isNaN(userInput)) {
+		userInput = Number(userInput);
+		if (userInput > 0) {
+			return userInput;
+		} else {
+			return 1;
+		}
+	} else {
+		return 1;
+	}
 }

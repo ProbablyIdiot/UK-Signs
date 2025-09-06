@@ -1,0 +1,11 @@
+{
+	"providers" : [
+		{
+			"type": "ttf",
+			"file": "lumedium.ttf",
+				"shift": [0, 1.5],
+				"size": 11.5,
+				"oversample": 7.5
+		}
+	]
+}
