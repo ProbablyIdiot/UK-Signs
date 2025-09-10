@@ -1,13 +1,6 @@
 let boardNum = 1;
 
 function create(ctx, state, pids) {
-	let userInput = pids.getCustomMessage(0);
-	if (!isNaN(userInput)) {
-		userInput = Number(userInput);
-		if (userInput > 0) {
-			boardNum = userInput;
-		}
-	}
 }
 
 function render(ctx, state, pids) {
@@ -103,7 +96,7 @@ function depatures(ctx, state, pids) {
 			if (i < (boardNum * 8)- 4) {//Remove bottom line of last departure to line up with board 1b
 				Text.create("On Time/Expected")
 				.text(delayIndicator)
-				.pos(20.5, 18.25 + (i2 * 15)) //Set row pos, 1s = outer margin, (i*15) = num of rows * row height 
+				.pos(20.5, 17.5 + (i2 * 15)) //Set row pos, 1s = outer margin, (i*15) = num of rows * row height 
 				.scale(0.6)
 				.font("minecraft:ukpids")
 				.color(0xff9900)
@@ -112,7 +105,7 @@ function depatures(ctx, state, pids) {
 				Text.create("Platform")
 				.text("Plat " + arrival.platformName())
 				.rightAlign()
-				.pos(70.4, 18.25 + (i2 * 15)) //Set row pos, 1s = outer margin, (i*15) = num of rows * row height 
+				.pos(70.4, 17.5 + (i2 * 15)) //Set row pos, 1s = outer margin, (i*15) = num of rows * row height 
 				.scale(0.6)
 				.font("minecraft:ukpids")
 				.color(0xff9900)

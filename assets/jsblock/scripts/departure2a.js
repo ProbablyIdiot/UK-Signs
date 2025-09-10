@@ -1,11 +1,6 @@
-let endDest = null;
-let depTime = null;
-let delayIndicator = null;
-let depStops = null;
-
+let boardNum = 1;
 
 function create(ctx, state, pids) {
-	//print("Hello, World!");
 }
 
 function render(ctx, state, pids) {
@@ -48,11 +43,52 @@ function topBackgrounds(ctx, state, pids) {
 }
 
 function departure(ctx, state, pids) {
-	Text.create()
-	.text("London Euston")
-	.scale(0.75)
-	.font("minecraft:lumedium")
-	.color(0xff9900)
-	.pos(5.8, 9.8)
-	.draw(ctx);
+	boardNum = getBoardNum(pids);
+
+	let arrival = pids.arrivals().get(boardNum - 1);
+	if (arrival != null){
+		let arrivalDest = TextUtil.cycleString(arrival.destination()); //Extracts destination from arrival and sets language
+
+		let estDepTime = new Date(arrival.departureTime()); //Fetch time object of dept time and convert to date object
+		let estDepHrs = estDepTime.getHours();
+		let estDepMins = estDepTime.getMinutes();
+
+		let depDeviation = new Date(arrival.deviation());
+		let depDeviationHrs = depDeviation.getHours();
+		let depDeviationMins = depDeviation.getMinutes();
+
+		//Convert to string and add leading zeros
+		let schedueledDepHrs = String(estDepHrs).padStart(2, "0");
+		let schedueledDepMins = String(estDepMins).padStart(2, "0");
+
+		if (depDeviation > 0) {
+			//Remove deviation from estimated depature time, convert to string and add leading zeros
+			schedueledDepHrs = String(estDepHrs - depDeviationHrs).padStart(2, "0"); 
+			schedueledDepMins = String(estDepMins - depDeviationMins).padStart(2, "0");
+		}
+
+		Text.create("Departure time")
+		.text(arrivalDest)
+		//.text(schedueledDepHrs + ":" + schedueledDepMins)
+		.pos(6.1, 10)
+		.scale(1.05)
+		.font("minecraft:ukpids")
+		.color(0xff9900)
+		.draw(ctx);
+	}
+	
+}
+
+function getBoardNum (pids) {
+	let userInput = pids.getCustomMessage(0);
+	if (!isNaN(userInput)) {
+		userInput = Number(userInput);
+		if (userInput > 0) {
+			return userInput;
+		} else {
+			return 1;
+		}
+	} else {
+		return 1;
+	}
 }
