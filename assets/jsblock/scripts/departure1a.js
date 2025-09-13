@@ -96,7 +96,7 @@ function depatures(ctx, state, pids) {
 			if (i < (boardNum * 8)- 4) {//Remove bottom line of last departure to line up with board 1b
 				Text.create("On Time/Expected")
 				.text(delayIndicator)
-				.pos(20.5, 17.5 + (i2 * 15)) //Set row pos, 1s = outer margin, (i*15) = num of rows * row height 
+				.pos(22.5, 17.5 + (i2 * 15)) //Set row pos, 1s = outer margin, (i*15) = num of rows * row height 
 				.scale(0.6)
 				.font("minecraft:ukpids")
 				.color(0xff9900)

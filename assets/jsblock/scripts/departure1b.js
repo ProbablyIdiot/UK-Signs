@@ -99,7 +99,7 @@ function depatures(ctx, state, pids) {
 
 			Text.create("On Time/Expected")
 			.text(delayIndicator)
-			.pos(20.5, 1.55 + (i2 * 15)) //Set row pos, 1s = outer margin, (i2*15) = num of rows * row height 
+			.pos(22.5, 1.55 + (i2 * 15)) //Set row pos, 1s = outer margin, (i2*15) = num of rows * row height 
 			.scale(0.6)
 			.font("minecraft:ukpids")
 			.color(0xff9900)

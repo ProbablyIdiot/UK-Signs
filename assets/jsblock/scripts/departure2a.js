@@ -68,13 +68,40 @@ function departure(ctx, state, pids) {
 		}
 
 		Text.create("Departure time")
-		.text(arrivalDest)
-		//.text(schedueledDepHrs + ":" + schedueledDepMins)
+		//.text(arrivalDest)
+		.text(schedueledDepHrs + ":" + schedueledDepMins)
 		.pos(6.1, 10)
 		.scale(1.05)
 		.font("minecraft:ukpids")
 		.color(0xff9900)
 		.draw(ctx);
+
+		Text.create("Platform number")
+		.text("Plat "+ arrival.platformName())
+		.pos(69.4, 10)
+		.rightAlign()
+		.scale(1.05)
+		.font("minecraft:ukpids")
+		.color(0xff9900)
+		.draw(ctx);
+
+		let route = arrival.route();
+		let stop = route.getDestination();
+		print(String(stop));
+
+		Text.create("Destination header")
+		.text("London Euston")
+		.pos(69.4, 10)
+		.scale(1.05)
+		.font("minecraft:ukpids")
+		.color(0xff9900)
+		.draw(ctx);
+
+		
+		
+		//let splitStop = stop.slpit("\n");
+		//print(splitStop[3])
+		//print(typeof stop);
 	}
 	
 }
@@ -90,5 +117,17 @@ function getBoardNum (pids) {
 		}
 	} else {
 		return 1;
+	}
+}
+
+function getArrivalDest (arrival, pos) {
+	let arrLength = arrival.departureIndex();
+	let route = arrival.route();
+	let stopsArr = [];
+	for (let i = 0; i < (arrLength - 1); i++) {
+		let stop = route.getDestination(i);
+		//let splitStop = stop.slpit("\n");
+		//print(splitStop[3])
+		print(typeof stop);
 	}
 }
