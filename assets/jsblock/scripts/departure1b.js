@@ -1,4 +1,4 @@
-//let boardNum = 1;
+include(Resources.id("jsblock:scripts/pidsUtil.js"));
 
 function create(ctx, state, pids) {
 	
@@ -93,7 +93,7 @@ function depatures(ctx, state, pids) {
 			let formatEstDepMins = String(estDepMins).padStart(2, "0");
 			let delayIndicator = "On Time"
 
-			if (depDeviationMins > 1) {
+			if (depDeviationMins > 0) {
 				delayIndicator = "Expt " + formatEstDepHrs + ":" + formatEstDepMins
 			}
 
