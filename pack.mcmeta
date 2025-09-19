@@ -1,8 +1,14 @@
 {
   "pack": {
+<<<<<<< HEAD
     "pack_format": 9,
 	"supported_formats": {"min_inclusive":6, "max_inclusive": 34},
     "description": "V2.1.0 Adds UK train station signs to the MTR mod! (Credits: ProbablyIdiot + Bri'ish2)"
 	
+=======
+    "pack_format": 15,
+	"supported_formats": {"min_inclusive":6, "max_inclusive": 81},
+    "description": "Adds UK signs and PIDS to the MTR and JCM mods. (Credits: ProbablyIdiot, Bri'ish2 & BitOne)"
+>>>>>>> Ver3.0
   }
 }

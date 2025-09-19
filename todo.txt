@@ -1,0 +1,2 @@
+- Add multiple pages to type 2 board
+- Add Special Notices/clock board
