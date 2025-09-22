@@ -48,7 +48,6 @@ function departure(ctx, state, pids) {
 
 	let arrival = pids.arrivals().get(boardNum - 1);
 	if (arrival != null){
-		let arrivalDest = TextUtil.cycleString(arrival.destination()); //Extracts destination from arrival and sets language
 
 		let estDepTime = new Date(arrival.departureTime()); //Fetch time object of dept time and convert to date object
 		let estDepHrs = estDepTime.getHours();
@@ -80,11 +79,12 @@ function departure(ctx, state, pids) {
 		topRight(arrival, time, ctx);
 
 		let route = arrival.route().getPlatforms(); //Gets platforms of all stops of the route
-		let lastStop = route.get(route.size()-1); //Gets last stop in route
-		let destination = lastStop.getStationName(); //Gets station name from lastStop
+		let lastStop = route.get(route.size()-1).getStationName(); //Gets last stop in route
+		let lastStopFormat = TextUtil.getNonCjkParts(lastStop)
+		let lastStopAscii = makeAscii(lastStop);
 
 		Text.create("Destination header")
-		.text(destination)
+		.text(lastStopAscii)
 		.pos(6.2, 21.25)
 		.size(70.5, 9.15)
 		.marquee()
@@ -104,6 +104,8 @@ function departure(ctx, state, pids) {
 		for (let i = 0; i < route.size(); i ++) { //Loops through all stops in route
 			if (i < 5) { //Stops departures going off the end of the first board
 				stop = route.get(i).getStationName();
+				let stopFormat = TextUtil.getNonCjkParts(stop);
+				let stopAscii = makeAscii(stopFormat);
 
 				if (i == (route.size() - 1)) {
 					Text.create("&")
@@ -115,7 +117,7 @@ function departure(ctx, state, pids) {
 					.draw(ctx);
 
 					Text.create("Stop")
-					.text(stop)
+					.text(stopAscii)
 					.pos(10.2, (40 + (i * 7.5)))
 					.size(95.5, 5.4)
 					.marquee()
@@ -125,7 +127,7 @@ function departure(ctx, state, pids) {
 					.draw(ctx);
 				}	else {
 					Text.create("Stop")
-					.text(stop)
+					.text(stopAscii)
 					.pos(6.2, (40 + (i * 7.5)))
 					.size(102, 5.4)
 					.marquee()
@@ -151,18 +153,6 @@ function getBoardNum (pids) {
 		}
 	} else {
 		return 1;
-	}
-}
-
-function getArrivalDest (arrival) {
-	let arrLength = arrival.departureIndex();
-	let route = arrival.route();
-	let stopsArr = [];
-	for (let i = 0; i < (arrLength - 1); i++) {
-		let stop = route.getDestination(i);
-		//let splitStop = stop.slpit("\n");
-		//print(splitStop[3])
-		print(typeof stop);
 	}
 }
 
@@ -200,4 +190,11 @@ function topRight (arrival, time, ctx) {
 	.font("minecraft:ukpids")
 	.color(0xff9900)
 	.draw(ctx);
+}
+
+function makeAscii(text) {
+	var combining = /[\u0300-\u036F]/g; 
+	text = String(text)
+	//return text.normalize("NFKD").replace(combining, "");
+	return text.normalize('NFD').replace(/([\u0300-\u036f]|[^0-9a-zA-Z])/g, '');
 }

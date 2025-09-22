@@ -36,7 +36,8 @@ function departure(ctx, state, pids) {
 
 		for (let i = 5; i < route.size(); i ++) { //Loops through all stops in route
 			if (i < 12) { //Continues after first board and stops departures going off the end of the second board
-				stop = route.get(i).getStationName();
+				stop = TextUtil.getNonCjkParts(route.get(i).getStationName());
+				let stopAscii = makeAscii(stop);
 
 				if (i == (route.size() - 1)) {
 					Text.create("&")
@@ -48,7 +49,7 @@ function departure(ctx, state, pids) {
 					.draw(ctx);
 
 					Text.create("Stop")
-					.text(stop)
+					.text(stopAscii)
 					.pos(10.2, (1.55 + (i2 * 7.5)))
 					.size(95.5, 5.4)
 					.marquee()
@@ -58,7 +59,7 @@ function departure(ctx, state, pids) {
 					.draw(ctx);
 				}	else {
 					Text.create("Stop")
-					.text(stop)
+					.text(stopAscii)
 					.pos(6.2, (1.55 + (i2 * 7.5)))
 					.size(102, 5.4)
 					.marquee()
@@ -104,4 +105,11 @@ function tocIndicator(ctx, arrival) {
 	.font("minecraft:lumedium")
 	.color(0xff9900)
 	.draw(ctx);
+}
+
+function makeAscii(text) {
+	var combining = /[\u0300-\u036F]/g; 
+	text = String(text)
+	//return text.normalize("NFKD").replace(combining, "");
+	return text.normalize('NFD').replace(/([\u0300-\u036f]|[^0-9a-zA-Z])/g, '');
 }

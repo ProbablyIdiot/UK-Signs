@@ -47,7 +47,8 @@ function depatures(ctx, state, pids) {
 		{
 		let arrival = pids.arrivals().get(i);
 		if (arrival != null){
-			let arrivalDest = TextUtil.cycleString(arrival.destination()); //Extracts destination from arrival and sets language
+			let arrivalDest = TextUtil.getNonCjkParts(arrival.destination()); //Extracts destination from arrival and sets language
+			let arrivalDestAscii = makeAscii(arrivalDest);
 
 			let estDepTime = new Date(arrival.departureTime()); //Fetch time object of dept time and convert to date object
 			let estDepHrs = estDepTime.getHours();
@@ -76,7 +77,7 @@ function depatures(ctx, state, pids) {
 			.draw(ctx);
 
 			Text.create("Render dest")
-			.text(arrivalDest)
+			.text(arrivalDestAscii)
 			.marquee()
 			.size(75.5, 6)
 			.pos(22.5, 10 + (i2 * 15)) //Set row pos, 1s = outer margin, (i*15) = num of rows * row height 
@@ -132,4 +133,11 @@ function getBoardNum (pids) {
 	} else {
 		return 1;
 	}
+}
+
+function makeAscii(text) {
+	var combining = /[\u0300-\u036F]/g; 
+	text = String(text)
+	//return text.normalize("NFKD").replace(combining, "");
+	return text.normalize('NFD').replace(/([\u0300-\u036f]|[^0-9a-zA-Z])/g, '');
 }
