@@ -11,7 +11,7 @@ function render(ctx, state, pids) {
 	.size(76, 76)
 	.draw(ctx);
 
-	PIDSUtil.lcdBackgrounds(ctx, 1.55);
+	PIDSUtil.lcdBackgrounds(ctx, 1.55, 9);
 
 	depatures(ctx, state, pids);
 

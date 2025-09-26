@@ -1,4 +1,10 @@
 const PIDSUtil = {
+	drawBackground (ctx) {
+		Texture.create("Background")
+		.texture("jsblock:textures/background.png")
+		.size(76, 152)
+		.draw(ctx);
+	},
 	getBoardNum (pids) {
 		let userInput = pids.getCustomMessage(0);
 		if (!isNaN(userInput)) {
@@ -12,8 +18,8 @@ const PIDSUtil = {
 			return 1;
 		}
 	},
-	lcdBackgrounds(ctx, startY) {
-		for (let i = 0; i < 9; i++) {
+	lcdBackgrounds(ctx, startY, num) {
+		for (let i = 0; i < num; i++) {
 			Texture.create("")
 			.texture("jsblock:textures/orangebkg.png")
 			.size(64.4, 5.4)
@@ -32,13 +38,29 @@ const PIDSUtil = {
 		//return text.normalize('NFKD').replace(/[^\w\s.-_\/]/g, '');
 		//return text;
 	},
-	type2Stops (route, ctx, start, end, yOffset){
+	type2Stops (arrival, route, ctx, start, yOffset){
 		let i2 = 0;
+		let platPos = 0
+		let end = route.size() - 1
 
-		for (let i = start; i < route.size(); i ++) { //Loops through all stops in route
-			if (i < end) { //Continues after first board and stops departures going off the end of the second board
-				stop = TextUtil.getNonCjkParts(route.get(i).getStationName());
+		for (let i = start; i < route.size(); i ++) { //Gets the position in the list of the current stop by comparing the platform ID of the current platform, and the IDs of those in the list
+			let platId = route.get(i).getPlatformId();
+			let curPlatId = arrival.platformId();
+
+			if (platId == curPlatId) {
+				platPos = i;
+			}
+		}
+
+		if (end > (platPos + 12)) {
+			end = platPos + 12
+		}
+		
+		for (let i = start; i < end; i ++) { //Loops through all stops in route
+			if (i > platPos) { //Starts after current station
+				let stop = TextUtil.getNonCjkParts(route.get(i).getStationName());
 				let stopAscii = PIDSUtil.makeAscii(stop);
+				
 
 				if (i == (route.size() - 1)) {
 					Text.create("&")
@@ -69,7 +91,9 @@ const PIDSUtil = {
 					.color(0xff9900)
 					.draw(ctx);
 				}
-			} else if (i == 12) {
+			i2 = i2 + 1;
+
+			} else if (i == (end -1)) {
 				Text.create("Continues... (to be removed in multiple page update)")
 				.text("Continues...")
 				.pos(6.2, (yOffset + (i2 * 7.5)))
@@ -80,7 +104,6 @@ const PIDSUtil = {
 				.color(0xff9900)
 				.draw(ctx);
 			}
-			i2 = i2 + 1;
 		}
 	}
 }

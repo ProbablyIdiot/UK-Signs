@@ -10,7 +10,7 @@ function render(ctx, state, pids) {
 	.size(76, 76)
 	.draw(ctx);
 
-	PIDSUtil.lcdBackgrounds(ctx, 1.55);
+	PIDSUtil.lcdBackgrounds(ctx, 1.55, 9);
 
 	departure(ctx, state, pids);
 }
@@ -26,7 +26,7 @@ function departure(ctx, state, pids) {
 		let route = arrival.route().getPlatforms(); //Gets platforms of all stops of the route
 		let i2 = 0; // i2 is used for positioning, as i is artificially higher
 
-		PIDSUtil.type2Stops(route, ctx, 5, 12, 1.55)
+		PIDSUtil.type2Stops(arrival, route, ctx, 5, 12, 1.55)
 
 		tocIndicator(ctx, arrival);
 	}

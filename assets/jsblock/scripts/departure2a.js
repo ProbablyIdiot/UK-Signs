@@ -5,12 +5,9 @@ function create(ctx, state, pids) {
 }
 
 function render(ctx, state, pids) {
-	Texture.create("Background")
-	.texture("jsblock:textures/background.png")
-	.size(76, 76)
-	.draw(ctx);
+	PIDSUtil.drawBackground(ctx)
 
-	PIDSUtil.lcdBackgrounds(ctx, 32.3);
+	PIDSUtil.lcdBackgrounds(ctx, 32.3, 15);
 
 	topBackgrounds(ctx, state, pids);
 
@@ -92,7 +89,7 @@ function departure(ctx, state, pids) {
 		.color(0xff9900)
 		.draw(ctx);
 
-		PIDSUtil.type2Stops(route, ctx, 0, 5, 40)
+		PIDSUtil.type2Stops(arrival, route, ctx, 0, 40)
 	}
 	
 }
