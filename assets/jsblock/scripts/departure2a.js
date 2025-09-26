@@ -1,3 +1,4 @@
+include(Resources.id("jsblock:scripts/pidsutils.js"));
 let boardNum = 1;
 
 function create(ctx, state, pids) {
@@ -43,12 +44,12 @@ function topBackgrounds(ctx, state, pids) {
 }
 
 function departure(ctx, state, pids) {
-	boardNum = getBoardNum(pids);
+	boardNum = PIDSUtil.getBoardNum(pids);
 	let time = Timing.elapsed();
 
 	let arrival = pids.arrivals().get(boardNum - 1);
 	if (arrival != null){
-
+		
 		let estDepTime = new Date(arrival.departureTime()); //Fetch time object of dept time and convert to date object
 		let estDepHrs = estDepTime.getHours();
 		let estDepMins = estDepTime.getMinutes();
@@ -81,7 +82,7 @@ function departure(ctx, state, pids) {
 		let route = arrival.route().getPlatforms(); //Gets platforms of all stops of the route
 		let lastStop = route.get(route.size()-1).getStationName(); //Gets last stop in route
 		let lastStopFormat = TextUtil.getNonCjkParts(lastStop)
-		let lastStopAscii = makeAscii(lastStop);
+		let lastStopAscii = PIDSUtil.removeDiacritics(lastStopFormat);
 
 		Text.create("Destination header")
 		.text(lastStopAscii)
@@ -101,59 +102,9 @@ function departure(ctx, state, pids) {
 		.color(0xff9900)
 		.draw(ctx);
 
-		for (let i = 0; i < route.size(); i ++) { //Loops through all stops in route
-			if (i < 5) { //Stops departures going off the end of the first board
-				stop = route.get(i).getStationName();
-				let stopFormat = TextUtil.getNonCjkParts(stop);
-				let stopAscii = makeAscii(stopFormat);
-
-				if (i == (route.size() - 1)) {
-					Text.create("&")
-					.text("&")
-					.pos(6.2, (40 + (i * 7.5)))
-					.scale(0.6)
-					.font("minecraft:ukpids")
-					.color(0xff9900)
-					.draw(ctx);
-
-					Text.create("Stop")
-					.text(stopAscii)
-					.pos(10.2, (40 + (i * 7.5)))
-					.size(95.5, 5.4)
-					.marquee()
-					.scale(0.6)
-					.font("minecraft:ukpids")
-					.color(0xff9900)
-					.draw(ctx);
-				}	else {
-					Text.create("Stop")
-					.text(stopAscii)
-					.pos(6.2, (40 + (i * 7.5)))
-					.size(102, 5.4)
-					.marquee()
-					.scale(0.6)
-					.font("minecraft:ukpids")
-					.color(0xff9900)
-					.draw(ctx);
-				}
-			}
-		}
+		PIDSUtil.type2Stops(route, ctx, 0, 5)
 	}
 	
-}
-
-function getBoardNum (pids) {
-	let userInput = pids.getCustomMessage(0);
-	if (!isNaN(userInput)) {
-		userInput = Number(userInput);
-		if (userInput > 0) {
-			return userInput;
-		} else {
-			return 1;
-		}
-	} else {
-		return 1;
-	}
 }
 
 function topRight (arrival, time, ctx) {
@@ -181,7 +132,6 @@ function topRight (arrival, time, ctx) {
 		}
 	}
 
-
 	Text.create("Platform number")
 	.text(text)
 	.pos(69.4, 10)
@@ -190,11 +140,4 @@ function topRight (arrival, time, ctx) {
 	.font("minecraft:ukpids")
 	.color(0xff9900)
 	.draw(ctx);
-}
-
-function makeAscii(text) {
-	var combining = /[\u0300-\u036F]/g; 
-	text = String(text)
-	//return text.normalize("NFKD").replace(combining, "");
-	return text.normalize('NFD').replace(/([\u0300-\u036f]|[^0-9a-zA-Z])/g, '');
 }

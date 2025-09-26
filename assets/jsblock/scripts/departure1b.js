@@ -1,4 +1,5 @@
-include(Resources.id("jsblock:scripts/pidsUtil.js"));
+include(Resources.id("jsblock:scripts/pidsutils.js"));
+let boardNum = 1;
 
 function create(ctx, state, pids) {
 	
@@ -39,7 +40,7 @@ function lcdBackgrounds(ctx, state, pids) {
 
 function depatures(ctx, state, pids) {
 	let i2 = 0; //i2 is used for positioning due to i being artificially higher
-	boardNum = getBoardNum(pids);
+	boardNum = PIDSUtil.getBoardNum(pids);
 
 	for (
 			let i = ((boardNum * 8)- 4);
@@ -50,7 +51,7 @@ function depatures(ctx, state, pids) {
 		let arrival = pids.arrivals().get(i);
 		if (arrival != null){
 			let arrivalDest = TextUtil.getNonCjkParts(arrival.destination()); //Extracts destination from arrival and sets language
-			let arrivalDestAscii = makeAscii(arrivalDest);
+			let arrivalDestAscii = PIDSUtil.makeAscii(arrivalDest);
 
 			let estDepTime = new Date(arrival.departureTime()); //Fetch time object of dept time and convert to date object
 			let estDepHrs = estDepTime.getHours();
@@ -119,25 +120,4 @@ function depatures(ctx, state, pids) {
 		i2 = i2 + 1;
 	}
 
-}
-
-function getBoardNum (pids) {
-	let userInput = pids.getCustomMessage(0);
-	if (!isNaN(userInput)) {
-		userInput = Number(userInput);
-		if (userInput > 0) {
-			return userInput;
-		} else {
-			return 1;
-		}
-	} else {
-		return 1;
-	}
-}
-
-function makeAscii(text) {
-	var combining = /[\u0300-\u036F]/g; 
-	text = String(text)
-	//return text.normalize("NFKD").replace(combining, "");
-	return text.normalize('NFD').replace(/([\u0300-\u036f]|[^0-9a-zA-Z])/g, '');
 }
