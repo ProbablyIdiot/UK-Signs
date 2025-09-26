@@ -11,7 +11,7 @@ function render(ctx, state, pids) {
 	.size(76, 76)
 	.draw(ctx);
 
-	lcdBackgrounds(ctx, state, pids);
+	PIDSUtil.lcdBackgrounds(ctx, 1.55);
 
 	depatures(ctx, state, pids);
 
@@ -26,16 +26,6 @@ function render(ctx, state, pids) {
 
 function dispose(ctx, state, pids) {
 	//print("Goodbye, World!");
-}
-
-function lcdBackgrounds(ctx, state, pids) {
-	for (let i = 0; i < 9; i++) {
-		Texture.create("")
-		.texture("jsblock:textures/orangebkg.png")
-		.size(64.4, 5.4)
-		.pos(5.8, 1.55 + (i * 7.5))
-		.draw(ctx);
-	}
 }
 
 function depatures(ctx, state, pids) {

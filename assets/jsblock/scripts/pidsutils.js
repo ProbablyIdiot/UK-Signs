@@ -1,13 +1,4 @@
 const PIDSUtil = {
-	LcdBkg (ctx, startY) {
-		for (let i = 0; i < 9; i++) {
-			Texture.create("")
-			.texture("jsblock:textures/orangebkg.png")
-			.size(64.4, 5.4)
-			.pos(5.8, 1.55 + (i * 7.5))
-			.draw(ctx);
-		}
-	},
 	getBoardNum (pids) {
 		let userInput = pids.getCustomMessage(0);
 		if (!isNaN(userInput)) {
@@ -21,12 +12,12 @@ const PIDSUtil = {
 			return 1;
 		}
 	},
-	bLcdBackgrounds(ctx, state, pids) {
+	lcdBackgrounds(ctx, startY) {
 		for (let i = 0; i < 9; i++) {
 			Texture.create("")
 			.texture("jsblock:textures/orangebkg.png")
 			.size(64.4, 5.4)
-			.pos(5.8, 1.55 + (i * 7.5))
+			.pos(5.8, startY + (i * 7.5))
 			.draw(ctx);
 		}
 	},
@@ -41,8 +32,8 @@ const PIDSUtil = {
 		//return text.normalize('NFKD').replace(/[^\w\s.-_\/]/g, '');
 		//return text;
 	},
-	type2Stops (route, ctx, start, end){
-		let i2 = 0; // i2 is used for positioning, as i is artificially higher
+	type2Stops (route, ctx, start, end, yOffset){
+		let i2 = 0;
 
 		for (let i = start; i < route.size(); i ++) { //Loops through all stops in route
 			if (i < end) { //Continues after first board and stops departures going off the end of the second board
@@ -52,7 +43,7 @@ const PIDSUtil = {
 				if (i == (route.size() - 1)) {
 					Text.create("&")
 					.text("&")
-					.pos(6.2, (1.55 + (i2 * 7.5)))
+					.pos(6.2, (yOffset + (i2 * 7.5)))
 					.scale(0.6)
 					.font("minecraft:ukpids")
 					.color(0xff9900)
@@ -60,7 +51,7 @@ const PIDSUtil = {
 
 					Text.create("Stop")
 					.text(stopAscii)
-					.pos(10.2, (1.55 + (i2 * 7.5)))
+					.pos(10.2, (yOffset + (i2 * 7.5)))
 					.size(95.5, 5.4)
 					.marquee()
 					.scale(0.6)
@@ -70,7 +61,7 @@ const PIDSUtil = {
 				}	else {
 					Text.create("Stop")
 					.text(stopAscii)
-					.pos(6.2, (1.55 + (i2 * 7.5)))
+					.pos(6.2, (yOffset + (i2 * 7.5)))
 					.size(102, 5.4)
 					.marquee()
 					.scale(0.6)
@@ -81,7 +72,7 @@ const PIDSUtil = {
 			} else if (i == 12) {
 				Text.create("Continues... (to be removed in multiple page update)")
 				.text("Continues...")
-				.pos(6.2, (1.55 + (i2 * 7.5)))
+				.pos(6.2, (yOffset + (i2 * 7.5)))
 				.size(102, 5.4)
 				.marquee()
 				.scale(0.6)

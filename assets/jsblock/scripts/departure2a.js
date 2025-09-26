@@ -10,7 +10,7 @@ function render(ctx, state, pids) {
 	.size(76, 76)
 	.draw(ctx);
 
-	lcdBackgrounds(ctx, state, pids);
+	PIDSUtil.lcdBackgrounds(ctx, 32.3);
 
 	topBackgrounds(ctx, state, pids);
 
@@ -21,16 +21,6 @@ function render(ctx, state, pids) {
 
 function dispose(ctx, state, pids) {
 	//print("Goodbye, World!");
-}
-
-function lcdBackgrounds(ctx, state, pids) {
-	for (let i = 3; i < 9; i++) {
-		Texture.create("")
-		.texture("jsblock:textures/orangebkg.png")
-		.size(64.4, 5.4)
-		.pos(5.8, 9.8 + (i * 7.5))
-		.draw(ctx);
-	}
 }
 
 function topBackgrounds(ctx, state, pids) {
@@ -82,7 +72,7 @@ function departure(ctx, state, pids) {
 		let route = arrival.route().getPlatforms(); //Gets platforms of all stops of the route
 		let lastStop = route.get(route.size()-1).getStationName(); //Gets last stop in route
 		let lastStopFormat = TextUtil.getNonCjkParts(lastStop)
-		let lastStopAscii = PIDSUtil.removeDiacritics(lastStopFormat);
+		let lastStopAscii = PIDSUtil.makeAscii(lastStopFormat);
 
 		Text.create("Destination header")
 		.text(lastStopAscii)
@@ -102,7 +92,7 @@ function departure(ctx, state, pids) {
 		.color(0xff9900)
 		.draw(ctx);
 
-		PIDSUtil.type2Stops(route, ctx, 0, 5)
+		PIDSUtil.type2Stops(route, ctx, 0, 5, 40)
 	}
 	
 }

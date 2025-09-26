@@ -10,7 +10,7 @@ function render(ctx, state, pids) {
 	.size(76, 76)
 	.draw(ctx);
 
-	PIDSUtil.bLcdBackgrounds(ctx, state, pids);
+	PIDSUtil.lcdBackgrounds(ctx, 9.8);
 
 	Text.create("Headings")
 	.text("Departures")
