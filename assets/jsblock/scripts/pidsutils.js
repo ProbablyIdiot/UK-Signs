@@ -116,13 +116,14 @@ const PIDSUtil = {
 		if (text != null) {
 			text = text[1]; //Gets extracted TOC name from regex kerfuffle
 		} else {
-			text = "Minecraft Transit Railways";
+			text = "Minecraft Transit Rail";
 		}
 
 		Text.create("tocDisp")
 		.text(text)
-		.pos(6.2, 137.1)
+		.pos(6.1, 137.2)
 		.size(132.5, 5.4)
+		.marquee()
 		.scale(0.7)
 		.font("minecraft:luheavy")
 		.color(0xff9900)

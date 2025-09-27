@@ -1,19 +1,13 @@
 {
   "pids_images": [
     {
-      "id": "departure1a",
-      "name": "Type 1 Departure Board (A)",
-      "scriptFiles": ["jsblock:scripts/departure1a.js"],
+      "id": "departure1",
+      "name": "Type 1 Departure Board",
+      "scriptFiles": ["jsblock:scripts/departure1.js"],
 	  "thumbnail": "jsblock:thumbnails/dep1a.png",
 	  "blacklist": ["rv_pids","rv_pids_sil_1","rv_pids_sil_2","lcd_pids","pids_1a"]
     },
-	{
-      "id": "departure1b",
-      "name": "Type 1 Departure Board (B)",
-      "scriptFiles": ["jsblock:scripts/departure1b.js"],
-	  "blacklist": ["rv_pids","rv_pids_sil_1","rv_pids_sil_2","lcd_pids","pids_1a"],
-	  "thumbnail": "jsblock:thumbnails/dep1b.png"
-    },
+	
 	{
       "id": "departure2",
       "name": "Type 2 Departure Board",

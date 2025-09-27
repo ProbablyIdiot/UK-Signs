@@ -5,12 +5,9 @@ function create(ctx, state, pids) {
 }
 
 function render(ctx, state, pids) {
-	Texture.create("Background")
-	.texture("jsblock:textures/background.png")
-	.size(76, 76)
-	.draw(ctx);
+	PIDSUtil.drawBackground(ctx);
 
-	PIDSUtil.lcdBackgrounds(ctx, 9.8, 9);
+	PIDSUtil.lcdBackgrounds(ctx, 9.8, 18);
 
 	Text.create("Headings")
 	.text("Departures")
@@ -20,20 +17,28 @@ function render(ctx, state, pids) {
 	.color(0xffffff)
 	.draw(ctx);
 
-	depatures(ctx, state, pids);
+	departures(ctx, state, pids);
+
+	Text.create("Page indicator")
+	.text("Page 1 of 1")
+	.pos(6.1, 137.2)
+	.scale(0.7)
+	.font("minecraft:luheavy")
+	.color(0xff9900)
+	.draw(ctx);
 }
 
 function dispose(ctx, state, pids) {
 	//print("Goodbye, World!");
 }
 
-function depatures(ctx, state, pids) {
+function departures(ctx, state, pids) {
 	let i2 = 0; //i2 is used for positioning due to i being artificially higher
 	boardNum = PIDSUtil.getBoardNum(pids);
 
 	for (
 			let i = ((boardNum * 8 )- 8);
-			i < ((boardNum * 8) - 3);
+			i < (boardNum * 8);
 			i++) 
 		{
 		let arrival = pids.arrivals().get(i);
@@ -85,7 +90,7 @@ function depatures(ctx, state, pids) {
 				delayIndicator = "Expt " + formatEstDepHrs + ":" + formatEstDepMins
 			}
 
-			if (i < (boardNum * 8)- 4) {//Remove bottom line of last departure to line up with board 1b
+			if (i < (boardNum * 8)) {//Remove bottom line of last departure to line up with board 1b
 				Text.create("On Time/Expected")
 				.text(delayIndicator)
 				.pos(22.5, 17.5 + (i2 * 15)) //Set row pos, 1s = outer margin, (i*15) = num of rows * row height 
