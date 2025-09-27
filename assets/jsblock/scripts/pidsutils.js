@@ -40,8 +40,9 @@ const PIDSUtil = {
 	},
 	type2Stops (arrival, route, ctx, start, yOffset){
 		let i2 = 0;
-		let platPos = 0
-		let end = route.size() - 1
+		let platPos = 0;
+		let end = route.size() - 1;
+		let continues = false;
 
 		for (let i = start; i < route.size(); i ++) { //Gets the position in the list of the current stop by comparing the platform ID of the current platform, and the IDs of those in the list
 			let platId = route.get(i).getPlatformId();
@@ -53,16 +54,17 @@ const PIDSUtil = {
 		}
 
 		if (end > (platPos + 12)) {
-			end = platPos + 12
+			end = platPos + 12;
+			continues = true;
 		}
 		
-		for (let i = start; i < end; i ++) { //Loops through all stops in route
+		for (let i = start; i <= end; i ++) { //Loops through all stops in route
 			if (i > platPos) { //Starts after current station
 				let stop = TextUtil.getNonCjkParts(route.get(i).getStationName());
 				let stopAscii = PIDSUtil.makeAscii(stop);
 				
 
-				if (i == (route.size() - 1)) {
+				if (i == (route.size() - 1) && i < end) {
 					Text.create("&")
 					.text("&")
 					.pos(6.2, (yOffset + (i2 * 7.5)))
@@ -80,6 +82,16 @@ const PIDSUtil = {
 					.font("minecraft:ukpids")
 					.color(0xff9900)
 					.draw(ctx);
+				}	else if (i == end) {
+					Text.create("Continues... (to be removed in multiple page update)")
+					.text("Continues...")
+					.pos(6.2, (yOffset + (i2 * 7.5)))
+					.size(102, 5.4)
+					.marquee()
+					.scale(0.6)
+					.font("minecraft:ukpids")
+					.color(0xff9900)
+					.draw(ctx);
 				}	else {
 					Text.create("Stop")
 					.text(stopAscii)
@@ -91,19 +103,29 @@ const PIDSUtil = {
 					.color(0xff9900)
 					.draw(ctx);
 				}
+
 			i2 = i2 + 1;
 
-			} else if (i == (end -1)) {
-				Text.create("Continues... (to be removed in multiple page update)")
-				.text("Continues...")
-				.pos(6.2, (yOffset + (i2 * 7.5)))
-				.size(102, 5.4)
-				.marquee()
-				.scale(0.6)
-				.font("minecraft:ukpids")
-				.color(0xff9900)
-				.draw(ctx);
-			}
+			} 
 		}
+	},
+	tocIndicator(ctx, arrival) {
+		let routeName = arrival.routeName();
+		let text = routeName.match(/\[(.*?)\]/); //Uses some stackoverflow regex magic to get text within square brackets
+		
+		if (text != null) {
+			text = text[1]; //Gets extracted TOC name from regex kerfuffle
+		} else {
+			text = "Minecraft Transit Railways";
+		}
+
+		Text.create("tocDisp")
+		.text(text)
+		.pos(6.2, 137.1)
+		.size(132.5, 5.4)
+		.scale(0.7)
+		.font("minecraft:luheavy")
+		.color(0xff9900)
+		.draw(ctx);
 	}
 }

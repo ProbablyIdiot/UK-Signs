@@ -90,6 +90,7 @@ function departure(ctx, state, pids) {
 		.draw(ctx);
 
 		PIDSUtil.type2Stops(arrival, route, ctx, 0, 40)
+		PIDSUtil.tocIndicator(ctx, arrival)
 	}
 	
 }

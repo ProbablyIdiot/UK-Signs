@@ -15,18 +15,11 @@
 	  "thumbnail": "jsblock:thumbnails/dep1b.png"
     },
 	{
-      "id": "departure2a",
-      "name": "Type 2 Departure Board (A)",
-      "scriptFiles": ["jsblock:scripts/departure2a.js"],
+      "id": "departure2",
+      "name": "Type 2 Departure Board",
+      "scriptFiles": ["jsblock:scripts/departure2.js"],
 	  "blacklist": ["rv_pids","rv_pids_sil_1","rv_pids_sil_2","lcd_pids","pids_1a"],
 	  "thumbnail": "jsblock:thumbnails/dep2a.png"
-    },
-	{
-      "id": "departure2b",
-      "name": "Type 2 Departure Board (B)",
-      "scriptFiles": ["jsblock:scripts/departure2b.js"],
-	  "blacklist": ["rv_pids","rv_pids_sil_1","rv_pids_sil_2","lcd_pids","pids_1a"],
-	  "thumbnail": "jsblock:thumbnails/dep2b.png"
     }
   ]
 }

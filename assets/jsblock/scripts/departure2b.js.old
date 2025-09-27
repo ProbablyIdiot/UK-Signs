@@ -32,23 +32,5 @@ function departure(ctx, state, pids) {
 	}
 }
 
-function tocIndicator(ctx, arrival) {
-	let routeName = arrival.routeName();
-	let text = routeName.match(/\[(.*?)\]/); //Uses some stackoverflow regex magic to get text within square brackets
-	
-	if (text != null) {
-		text = text[1]; //Gets extracted TOC name from regex kerfuffle
-	} else {
-		text = "Minecraft Transit Rail";
-	}
 
-	Text.create("tocDisp")
-	.text(text)
-	.pos(6.2, 61.55)
-	.size(132.5, 5.4)
-	.scale(0.45)
-	.font("minecraft:lumedium")
-	.color(0xff9900)
-	.draw(ctx);
-}
 
