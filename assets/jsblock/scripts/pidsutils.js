@@ -69,7 +69,42 @@ const PIDSUtil = {
 			.replace(/[ýÿŷ]/g, "y")
 			.replace(/[ŹŻŽ]/g, "Z")
 			.replace(/[źżž]/g, "z")
-			.replace(/[^a-z0-9]/gi, ''); // final clean up
+
+			// Cyrillic (Russian) characters
+			.replace(/[Аа]/g, "a")
+			.replace(/[Бб]/g, "b")
+			.replace(/[Вв]/g, "v")
+			.replace(/[Гг]/g, "g")
+			.replace(/[Дд]/g, "d")
+			.replace(/[ЕеЁё]/g, "e")
+			.replace(/[Жж]/g, "zh")
+			.replace(/[Зз]/g, "z")
+			.replace(/[Ии]/g, "i")
+			.replace(/[Йй]/g, "y")
+			.replace(/[Кк]/g, "k")
+			.replace(/[Лл]/g, "l")
+			.replace(/[Мм]/g, "m")
+			.replace(/[Нн]/g, "n")
+			.replace(/[Оо]/g, "o")
+			.replace(/[Пп]/g, "p")
+			.replace(/[Рр]/g, "r")
+			.replace(/[Сс]/g, "s")
+			.replace(/[Тт]/g, "t")
+			.replace(/[Уу]/g, "u")
+			.replace(/[Фф]/g, "f")
+			.replace(/[Хх]/g, "kh")
+			.replace(/[Цц]/g, "ts")
+			.replace(/[Чч]/g, "ch")
+			.replace(/[Шш]/g, "sh")
+			.replace(/[Щщ]/g, "shch")
+			.replace(/[ЪъЬь]/g, "") // hard/soft signs removed
+			.replace(/[Ыы]/g, "y")
+			.replace(/[Ээ]/g, "e")
+			.replace(/[Юю]/g, "yu")
+			.replace(/[Яя]/g, "ya")
+
+			// Final cleanup: keep only letters, numbers, spaces, and colons
+			.replace(/[^a-z0-9 :]/gi, '');
 	},
 	type2Stops (arrival, route, ctx, start, yOffset){
 		let i2 = 0;
@@ -86,17 +121,27 @@ const PIDSUtil = {
 		}
 
 		if (end > (platPos + 12)) {
-			end = platPos + 12;
-			continues = true;
+			end = platPos + 11;
 		}
-		
+	
+
 		for (let i = start; i <= end; i ++) { //Loops through all stops in route
 			if (i > platPos) { //Starts after current station
-				let stop = TextUtil.getNonCjkParts(route.get(i).getStationName());
+				let stop = TextUtil.cycleString(route.get(i).getStationName());
 				let stopAscii = PIDSUtil.makeAscii(stop);
+				//let stopAscii = stop;
 				
-
-				if (i == (route.size() - 1) && i < end) {
+				if (i2 == 11) {
+					Text.create("Continues... (to be removed in multiple page update)")
+					.text("Continues...")
+					.pos(6.2, (yOffset + (i2 * 7.5)))
+					.size(102, 5.4)
+					.marquee()
+					.scale(0.6)
+					.font("minecraft:ukpids")
+					.color(0xff9900)
+					.draw(ctx);
+				}	else if (i == (route.size() - 1)) {
 					Text.create("&")
 					.text("&")
 					.pos(6.2, (yOffset + (i2 * 7.5)))
@@ -109,16 +154,6 @@ const PIDSUtil = {
 					.text(stopAscii)
 					.pos(10.2, (yOffset + (i2 * 7.5)))
 					.size(95.5, 5.4)
-					.marquee()
-					.scale(0.6)
-					.font("minecraft:ukpids")
-					.color(0xff9900)
-					.draw(ctx);
-				}	else if (i == end) {
-					Text.create("Continues... (to be removed in multiple page update)")
-					.text("Continues...")
-					.pos(6.2, (yOffset + (i2 * 7.5)))
-					.size(102, 5.4)
 					.marquee()
 					.scale(0.6)
 					.font("minecraft:ukpids")

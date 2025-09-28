@@ -68,7 +68,7 @@ function departure(ctx, state, pids) {
 
 		let route = arrival.route().getPlatforms(); //Gets platforms of all stops of the route
 		let lastStop = route.get(route.size()-1).getStationName(); //Gets last stop in route
-		let lastStopFormat = TextUtil.getNonCjkParts(lastStop)
+		let lastStopFormat = TextUtil.cycleString(lastStop)
 		let lastStopAscii = PIDSUtil.makeAscii(lastStopFormat);
 
 		Text.create("Destination header")
