@@ -29,20 +29,52 @@ const PIDSUtil = {
 	},
 	makeAscii(text) {
 		var combining = /[\u0300-\u036F]/g; 
-		return String(text);
-		//print(text);
-		//text = text.trimStart();
-		//return text.normalize("NFKD").replace(combining, "");
-		//return text.normalize('NFD').replace(/([\u0300-\u036f]|[^0-9a-zA-Z])/g, '');
-		//text = text.replace(/\u0142/g, "l");
-		//return text.normalize('NFKD').replace(/[^\w\s.-_\/]/g, '');
-		//return text;
+		text = String(text);
+		return text
+			.replace(/[ÀÁÂÃÄÅĀĂĄ]/g, "A")
+			.replace(/[àáâãäåāăą]/g, "a")
+			.replace(/[ÇĆĈĊČ]/g, "C")
+			.replace(/[çćĉċč]/g, "c")
+			.replace(/[ÐĎĐ]/g, "D")
+			.replace(/[ðďđ]/g, "d")
+			.replace(/[ÈÉÊËĒĔĖĘĚ]/g, "E")
+			.replace(/[èéêëēĕėęě]/g, "e")
+			.replace(/[ĜĞĠĢ]/g, "G")
+			.replace(/[ĝğġģ]/g, "g")
+			.replace(/[ĤĦ]/g, "H")
+			.replace(/[ĥħ]/g, "h")
+			.replace(/[ÌÍÎÏĨĪĬĮİ]/g, "I")
+			.replace(/[ìíîïĩīĭįı]/g, "i")
+			.replace(/[Ĵ]/g, "J")
+			.replace(/[ĵ]/g, "j")
+			.replace(/[Ķ]/g, "K")
+			.replace(/[ķ]/g, "k")
+			.replace(/[ĹĻĽĿŁ]/g, "L")
+			.replace(/[ĺļľŀł]/g, "l")
+			.replace(/[ÑŃŅŇ]/g, "N")
+			.replace(/[ñńņň]/g, "n")
+			.replace(/[ÒÓÔÕÖØŌŎŐ]/g, "O")
+			.replace(/[òóôõöøōŏő]/g, "o")
+			.replace(/[ŔŖŘ]/g, "R")
+			.replace(/[ŕŗř]/g, "r")
+			.replace(/[ŚŜŞŠ]/g, "S")
+			.replace(/[śŝşš]/g, "s")
+			.replace(/[ŢŤŦ]/g, "T")
+			.replace(/[ţťŧ]/g, "t")
+			.replace(/[ÙÚÛÜŨŪŬŮŰŲ]/g, "U")
+			.replace(/[ùúûüũūŭůűų]/g, "u")
+			.replace(/[Ŵ]/g, "W")
+			.replace(/[ŵ]/g, "w")
+			.replace(/[ÝŶŸ]/g, "Y")
+			.replace(/[ýÿŷ]/g, "y")
+			.replace(/[ŹŻŽ]/g, "Z")
+			.replace(/[źżž]/g, "z")
+			.replace(/[^a-z0-9]/gi, ''); // final clean up
 	},
 	type2Stops (arrival, route, ctx, start, yOffset){
 		let i2 = 0;
 		let platPos = 0;
 		let end = route.size() - 1;
-		let continues = false;
 
 		for (let i = start; i < route.size(); i ++) { //Gets the position in the list of the current stop by comparing the platform ID of the current platform, and the IDs of those in the list
 			let platId = route.get(i).getPlatformId();
