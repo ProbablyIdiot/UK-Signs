@@ -520,6 +520,126 @@
 			"small": true,
 			"background_color": "#003274",
 			"custom_text": "Disabled Toilet"
+		},
+		"Platform 1": {
+			"texture_id": "mtr:custom_directory/train.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Platform 1"
+		},
+		"Platform 2": {
+			"texture_id": "mtr:custom_directory/train.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Platform 2"
+		},
+		"Platform 3": {
+			"texture_id": "mtr:custom_directory/train.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Platform 3"
+		},
+		"Platform 4": {
+			"texture_id": "mtr:custom_directory/train.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Platform 4"
+		},
+		"Platform 5": {
+			"texture_id": "mtr:custom_directory/train.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Platform 5"
+		},
+		"Platform 6": {
+			"texture_id": "mtr:custom_directory/train.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Platform 6"
+		},
+		"Platform 7": {
+			"texture_id": "mtr:custom_directory/train.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Platform 7"
+		},
+		"Platform 8": {
+			"texture_id": "mtr:custom_directory/train.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Platform 8"
+		},
+		"Platform 9": {
+			"texture_id": "mtr:custom_directory/train.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Platform 9"
+		},
+		"Platform 10": {
+			"texture_id": "mtr:custom_directory/train.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Platform 10"
+		},
+		"Platform 11": {
+			"texture_id": "mtr:custom_directory/train.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Platform 11"
+		},
+		"Platform 12": {
+			"texture_id": "mtr:custom_directory/train.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Platform 12"
+		},
+		"Platform 13": {
+			"texture_id": "mtr:custom_directory/train.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Platform 13"
+		},
+		"Platform 14": {
+			"texture_id": "mtr:custom_directory/train.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Platform 14"
+		},
+		"Platform 15": {
+			"texture_id": "mtr:custom_directory/train.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Platform 15"
+		},
+		"Platform 16": {
+			"texture_id": "mtr:custom_directory/train.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Platform 16"
+		},
+		"Platform 17": {
+			"texture_id": "mtr:custom_directory/train.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Platform 17"
+		},
+		"Platform 18": {
+			"texture_id": "mtr:custom_directory/train.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Platform 18"
+		},
+		"Platform 19": {
+			"texture_id": "mtr:custom_directory/train.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Platform 19"
+		},
+		"Platform 20": {
+			"texture_id": "mtr:custom_directory/train.png",
+			"small": true,
+			"background_color": "#003274",
+			"custom_text": "Platform 20"
 		}
 	}
 }
