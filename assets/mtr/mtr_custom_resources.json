@@ -640,6 +640,126 @@
 			"small": true,
 			"background_color": "#003274",
 			"custom_text": "Platform 20"
+		},
+		"Platform": {
+			"texture_id": "mtr:custom_directory/platform.png",
+			"background_color": "#003274"
+		},
+		"1-2": {
+			"texture_id": "mtr:custom_directory/1-2.png",
+			"background_color": "#003274"
+		},
+		"2-3": {
+			"texture_id": "mtr:custom_directory/2-3.png",
+			"background_color": "#003274"
+		},
+		"3-4": {
+			"texture_id": "mtr:custom_directory/3-4.png",
+			"background_color": "#003274"
+		},
+		"4-5": {
+			"texture_id": "mtr:custom_directory/4-5.png",
+			"background_color": "#003274"
+		},
+		"5-6": {
+			"texture_id": "mtr:custom_directory/5-6.png",
+			"background_color": "#003274"
+		},
+		"6-7": {
+			"texture_id": "mtr:custom_directory/6-7.png",
+			"background_color": "#003274"
+		},
+		"7-8": {
+			"texture_id": "mtr:custom_directory/7-8.png",
+			"background_color": "#003274"
+		},
+		"8-9": {
+			"texture_id": "mtr:custom_directory/8-9.png",
+			"background_color": "#003274"
+		},
+		"9-10": {
+			"texture_id": "mtr:custom_directory/9-10.png",
+			"background_color": "#003274"
+		},
+		"10-11": {
+			"texture_id": "mtr:custom_directory/10-11.png",
+			"background_color": "#003274"
+		},
+		"10-11end": {
+			"texture_id": "mtr:custom_directory/10-11end.png",
+			"background_color": "#003274"
+		},
+		"11-12": {
+			"texture_id": "mtr:custom_directory/10-11.png",
+			"background_color": "#003274"
+		},
+		"11-12end": {
+			"texture_id": "mtr:custom_directory/10-11end.png",
+			"background_color": "#003274"
+		},
+		"12-13": {
+			"texture_id": "mtr:custom_directory/12-13.png",
+			"background_color": "#003274"
+		},
+		"12-13end": {
+			"texture_id": "mtr:custom_directory/12-13end.png",
+			"background_color": "#003274"
+		},
+		"13-14": {
+			"texture_id": "mtr:custom_directory/13-14.png",
+			"background_color": "#003274"
+		},
+		"13-14end": {
+			"texture_id": "mtr:custom_directory/13-14end.png",
+			"background_color": "#003274"
+		},
+		"14-15": {
+			"texture_id": "mtr:custom_directory/14-15.png",
+			"background_color": "#003274"
+		},
+		"14-15end": {
+			"texture_id": "mtr:custom_directory/14-15end.png",
+			"background_color": "#003274"
+		},
+		"15-16": {
+			"texture_id": "mtr:custom_directory/15-16.png",
+			"background_color": "#003274"
+		},
+		"15-16end": {
+			"texture_id": "mtr:custom_directory/15-16end.png",
+			"background_color": "#003274"
+		},
+		"16-17": {
+			"texture_id": "mtr:custom_directory/16-17.png",
+			"background_color": "#003274"
+		},
+		"16-17end": {
+			"texture_id": "mtr:custom_directory/16-17end.png",
+			"background_color": "#003274"
+		},
+		"17-18": {
+			"texture_id": "mtr:custom_directory/17-18.png",
+			"background_color": "#003274"
+		},
+		"17-18end": {
+			"texture_id": "mtr:custom_directory/17-18end.png",
+			"background_color": "#003274"
+		},
+		"18-19": {
+			"texture_id": "mtr:custom_directory/18-19.png",
+			"background_color": "#003274"
+		},
+		"18-19end": {
+			"texture_id": "mtr:custom_directory/18-19end.png",
+			"background_color": "#003274"
+		},
+		"19-20": {
+			"texture_id": "mtr:custom_directory/19-20.png",
+			"background_color": "#003274"
+		},
+		"19-20end": {
+			"texture_id": "mtr:custom_directory/19-20end.png",
+			"background_color": "#003274"
 		}
 	}
 }
