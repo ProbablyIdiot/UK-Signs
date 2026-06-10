@@ -1,4 +1,4 @@
-const PIDSUtil = {
+const customPIDSUtil = {
 	//Draws background layer
 	drawBackground (ctx) {
 		Texture.create("Background")

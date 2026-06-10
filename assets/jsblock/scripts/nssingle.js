@@ -1,13 +1,13 @@
-include(Resources.id("jsblock:scripts/pidsutils.js"));
+include(Resources.id("jsblock:scripts/custompidsutils.js"));
 let boardNum = 1;
 
 function create(ctx, state, pids) {
 }
 
 function render(ctx, state, pids) {
-	PIDSUtil.drawBackground(ctx)
+	customPIDSUtil.drawBackground(ctx)
 
-	PIDSUtil.lcdBackgrounds(ctx, 32.3, 15);
+	customPIDSUtil.lcdBackgrounds(ctx, 32.3, 15);
 
 	topBackgrounds(ctx, state, pids);
 
@@ -31,11 +31,11 @@ function topBackgrounds(ctx, state, pids) {
 }
 
 function departure(ctx, state, pids) {
-	boardNum = PIDSUtil.getBoardNum(pids);
+	boardNum = customPIDSUtil.getBoardNum(pids);
 	let time = Timing.elapsed();
 
 	let arrival = pids.arrivals().get(boardNum - 1);
-	if (arrival != null){
+	if (arrival){
 		
 		let estDepTime = new Date(arrival.departureTime()); //Fetch time object of dept time and convert to date object
 		let estDepHrs = estDepTime.getHours();
@@ -69,7 +69,7 @@ function departure(ctx, state, pids) {
 		let route = arrival.route().getPlatforms(); //Gets platforms of all stops of the route
 		let lastStop = route.get(route.size()-1).getStationName(); //Gets last stop in route
 		let lastStopFormat = TextUtil.cycleString(lastStop)
-		let lastStopAscii = PIDSUtil.makeAscii(lastStopFormat);
+		let lastStopAscii = customPIDSUtil.makeAscii(lastStopFormat);
 
 		Text.create("Destination header")
 		.text(lastStopAscii)
@@ -152,7 +152,7 @@ function stopList (arrival, route, ctx, start, yOffset){
 	for (let i = start; i <= end; i ++) { //Loops through all stops in route
 		if (i > platPos) { //Starts after current station
 			let stop = TextUtil.cycleString(route.get(i).getStationName());
-			let stopAscii = PIDSUtil.makeAscii(stop);
+			let stopAscii = customPIDSUtil.makeAscii(stop);
 			//let stopAscii = stop;
 			
 			//If list is longer than room on PID
@@ -207,19 +207,19 @@ function tocIndicator(ctx, arrival) {
 	let routeName = arrival.routeName();
 	let text = routeName.match(/\[(.*?)\]/); //Uses some stackoverflow regex magic to get text within square brackets
 	
-	if (text != null) {
+	if (text) {
 		text = text[1]; //Gets extracted TOC name from regex kerfuffle
 	} else {
 		text = "Minecraft Transit Rail";
 	}
 
 	Text.create("tocDisp")
-	.text(text)
-	.pos(6.1, 137.2)
-	.size(87.5, 5.4)
-	.marquee()
-	.scale(0.7)
-	.font("minecraft:luheavy")
-	.color(0xff9900)
-	.draw(ctx);
+		.text(text)
+		.pos(6.1, 137.2)
+		.size(87.5, 5.4)
+		.marquee()
+		.scale(0.7)
+		.font("minecraft:luheavy")
+		.color(0xff9900)
+		.draw(ctx);
 }

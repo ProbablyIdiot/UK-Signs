@@ -14,6 +14,14 @@
       "scriptFiles": ["jsblock:scripts/nssingle.js"],
 	  "blacklist": ["rv_pids","rv_pids_sil_1","rv_pids_sil_2","lcd_pids","pids_1a"],
 	  "thumbnail": "jsblock:thumbnails/dep2.png"
-    }
+    },
+
+	{
+		"id": "nsspecial",
+		"name": "Bham New Str (Special Notices)",
+		"scriptFiles": ["jsblock:scripts/nsspecial.js"],
+		"blacklist": ["rv_pids","rv_pids_sil_1","rv_pids_sil_2","lcd_pids","pids_1a"],
+	  	"thumbnail": "jsblock:thumbnails/dep2.png"
+	}
   ]
 }

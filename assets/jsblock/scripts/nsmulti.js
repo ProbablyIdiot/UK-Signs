@@ -1,13 +1,13 @@
-include(Resources.id("jsblock:scripts/pidsutils.js"));
+include(Resources.id("jsblock:scripts/custompidsutils.js"));
 let boardNum = 1;
 
 function create(ctx, state, pids) {
 }
 
 function render(ctx, state, pids) {
-	PIDSUtil.drawBackground(ctx);
+	customPIDSUtil.drawBackground(ctx);
 
-	PIDSUtil.lcdBackgrounds(ctx, 9.8, 18);
+	customPIDSUtil.lcdBackgrounds(ctx, 9.8, 18);
 
 	Text.create("Headings")
 	.text("Departures")
@@ -34,7 +34,7 @@ function dispose(ctx, state, pids) {
 
 function departures(ctx, state, pids) {
 	let i2 = 0; //i2 is used for positioning due to i being artificially higher
-	boardNum = PIDSUtil.getBoardNum(pids);
+	boardNum = customPIDSUtil.getBoardNum(pids);
 
 	for (
 			let i = ((boardNum * 8 )- 8);
@@ -42,9 +42,9 @@ function departures(ctx, state, pids) {
 			i++) 
 		{
 		let arrival = pids.arrivals().get(i);
-		if (arrival != null){
+		if (arrival){
 			let arrivalDest = TextUtil.getNonCjkParts(arrival.destination()); //Extracts destination from arrival and sets language
-			let arrivalDestAscii = PIDSUtil.makeAscii(arrivalDest);
+			let arrivalDestAscii = customPIDSUtil.makeAscii(arrivalDest);
 
 			let estDepTime = new Date(arrival.departureTime()); //Fetch time object of dept time and convert to date object
 			let estDepHrs = estDepTime.getHours();
