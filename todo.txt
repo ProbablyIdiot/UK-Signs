@@ -1,2 +1,8 @@
 - Add multiple pages to type 2 board
+- Add arrivals board
 - Add Special Notices/clock board
+- Add Snow Hill board
+- Add portrait WMR dep board
+- Add landscape WMR dep and arrivals board
+- Add WMR platform PID
+- Add platform PIDg

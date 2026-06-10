@@ -1,0 +1,4 @@
+Fixed TOC name going off of type 2 board edge
+Fixed "&" character showing when only one calling at entry on type 2 board
+Moved Type2 Exclusive features out of pidsutils.js
+Renamed type1 and type2 boards

@@ -1,17 +1,17 @@
 {
   "pids_images": [
     {
-      "id": "departure1",
-      "name": "Type 1 Departure Board",
-      "scriptFiles": ["jsblock:scripts/departure1.js"],
+      "id": "nsmulti",
+      "name": "Bham New Str (Multiple Departures)",
+      "scriptFiles": ["jsblock:scripts/nsmulti.js"],
 	  "thumbnail": "jsblock:thumbnails/dep1.png",
 	  "blacklist": ["rv_pids","rv_pids_sil_1","rv_pids_sil_2","lcd_pids","pids_1a"]
     },
 	
 	{
-      "id": "departure2",
-      "name": "Type 2 Departure Board",
-      "scriptFiles": ["jsblock:scripts/departure2.js"],
+      "id": "nssingle",
+      "name": "Bham New Str (Single Departure)",
+      "scriptFiles": ["jsblock:scripts/nssingle.js"],
 	  "blacklist": ["rv_pids","rv_pids_sil_1","rv_pids_sil_2","lcd_pids","pids_1a"],
 	  "thumbnail": "jsblock:thumbnails/dep2.png"
     }
