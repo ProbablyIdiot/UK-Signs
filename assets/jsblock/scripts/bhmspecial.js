@@ -59,7 +59,7 @@ function customText(ctx, pids) {
 	//max length = 25
 
 	let i = 0;
-	let msgArray = customMessage.match(/.{1,25}/g);
+	let msgArray = customMessage.match(/.{1,21}/g);
 
 	for (let i = 0; i <= 11; i++){
 		if (msgArray[i]) {

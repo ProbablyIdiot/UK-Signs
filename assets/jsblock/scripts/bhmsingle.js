@@ -206,6 +206,7 @@ function stopList (arrival, route, ctx, start, yOffset){
 function tocIndicator(ctx, arrival) {
 	let routeName = arrival.routeName();
 	let text = routeName.match(/\[(.*?)\]/); //Uses some stackoverflow regex magic to get text within square brackets
+	let coaches = arrival.cars().length;
 	
 	if (text) {
 		text = text[1]; //Gets extracted TOC name from regex kerfuffle
@@ -213,13 +214,13 @@ function tocIndicator(ctx, arrival) {
 		text = "Minecraft Transit Rail";
 	}
 
-	Text.create("tocDisp")
-		.text(text)
-		.pos(6.1, 137.2)
-		.size(87.5, 5.4)
+	Text.create("TOC/Formed of")
+		.text("This is a " + text + " service formed of " + coaches + " coaches.")
+		.pos(6, 137.2)
+		.size(102, 5.4)
+		.scale(0.6)
 		.marquee()
-		.scale(0.7)
-		.font("minecraft:luheavy")
+		.font("minecraft:ukpids")
 		.color(0xff9900)
 		.draw(ctx);
 }

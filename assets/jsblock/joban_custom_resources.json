@@ -1,25 +1,25 @@
 {
   "pids_images": [
     {
-      "id": "nsmulti",
+      "id": "bhmmulti",
       "name": "Bham New Str (Multiple Departures)",
-      "scriptFiles": ["jsblock:scripts/nsmulti.js"],
+      "scriptFiles": ["jsblock:scripts/bhmmulti.js"],
 	  "thumbnail": "jsblock:thumbnails/dep1.png",
 	  "blacklist": ["rv_pids","rv_pids_sil_1","rv_pids_sil_2","lcd_pids","pids_1a"]
     },
 	
 	{
-      "id": "nssingle",
+      "id": "bhmsingle",
       "name": "Bham New Str (Single Departure)",
-      "scriptFiles": ["jsblock:scripts/nssingle.js"],
+      "scriptFiles": ["jsblock:scripts/bhmsingle.js"],
 	  "blacklist": ["rv_pids","rv_pids_sil_1","rv_pids_sil_2","lcd_pids","pids_1a"],
 	  "thumbnail": "jsblock:thumbnails/dep2.png"
     },
 
 	{
-		"id": "nsspecial",
+		"id": "bhmspecial",
 		"name": "Bham New Str (Special Notices)",
-		"scriptFiles": ["jsblock:scripts/nsspecial.js"],
+		"scriptFiles": ["jsblock:scripts/bhmspecial.js"],
 		"blacklist": ["rv_pids","rv_pids_sil_1","rv_pids_sil_2","lcd_pids","pids_1a"],
 	  	"thumbnail": "jsblock:thumbnails/dep2.png"
 	}
