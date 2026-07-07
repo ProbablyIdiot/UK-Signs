@@ -10,7 +10,7 @@ function render(ctx, state, pids) {
 	customPIDSUtil.lcdBackgrounds(ctx, 9.8, 18);
 
 	Text.create("Headings")
-	.text("Departures")
+	.text("Arrivals")
 	.pos(1, 1)
 	//.scale(0.8)
 	.font("minecraft:newbrunel")
@@ -42,11 +42,30 @@ function departures(ctx, state, pids) {
 			i++) 
 		{
 		let arrival = pids.arrivals().get(i);
+		
 		if (arrival){
-			let arrivalDest = TextUtil.getNonCjkParts(arrival.destination()); //Extracts destination from arrival and sets language
-			let arrivalDestAscii = customPIDSUtil.makeAscii(arrivalDest);
+			let route = arrival.route().getPlatforms(); //Gets list of platforms that the service calls at
+			let origin = TextUtil.getNonCjkParts(route[0].getStationName()); //Gets station name of origin from list and makes ASCII
 			
-			let [schedueledDepHrs, schedueledDepMins] = customPIDSUtil.scheduledTime(arrival);
+			let originAscii = customPIDSUtil.makeAscii(origin);
+
+			let estDepTime = new Date(arrival.departureTime()); //Fetch time object of dept time and convert to date object
+			let estDepHrs = estDepTime.getHours();
+			let estDepMins = estDepTime.getMinutes();
+
+			let depDeviation = new Date(arrival.deviation());
+			let depDeviationHrs = depDeviation.getHours();
+			let depDeviationMins = depDeviation.getMinutes();
+
+			//Convert to string and add leading zeros
+			let schedueledDepHrs = String(estDepHrs).padStart(2, "0");
+			let schedueledDepMins = String(estDepMins).padStart(2, "0");
+
+			if (depDeviation > 0) {
+				//Remove deviation from estimated depature time, convert to string and add leading zeros
+				schedueledDepHrs = String(estDepHrs - depDeviationHrs).padStart(2, "0"); 
+				schedueledDepMins = String(estDepMins - depDeviationMins).padStart(2, "0");
+			}
 
 			Text.create("Departure time")
 			.text(schedueledDepHrs + ":" + schedueledDepMins)
@@ -56,8 +75,8 @@ function departures(ctx, state, pids) {
 			.color(0xff9900)
 			.draw(ctx);
 
-			Text.create("Render dest")
-			.text(arrivalDestAscii)
+			Text.create("Render origin")
+			.text(originAscii)
 			.marquee()
 			.size(75.5, 6)
 			.pos(22.5, 10 + (i2 * 15)) //Set row pos, 1s = outer margin, (i*15) = num of rows * row height 
@@ -66,7 +85,13 @@ function departures(ctx, state, pids) {
 			.color(0xff9900)
 			.draw(ctx);
 
-			let delayIndicator = customPIDSUtil.delayIndicator(arrival);
+			let formatEstDepHrs = String(estDepHrs).padStart(2, "0");
+			let formatEstDepMins = String(estDepMins).padStart(2, "0");
+			let delayIndicator = "On Time"
+
+			if (depDeviationMins > 0) {
+				delayIndicator = "Expt " + formatEstDepHrs + ":" + formatEstDepMins
+			}
 
 			if (i < (boardNum * 8)) {//Remove bottom line of last departure to line up with board 1b
 				Text.create("On Time/Expected")

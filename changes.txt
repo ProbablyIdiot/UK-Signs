@@ -2,4 +2,7 @@ Fixed TOC name going off of type 2 board edge
 Fixed "&" character showing when only one calling at entry on type 2 board
 Moved Type2 Exclusive features out of pidsutils.js
 Renamed type1 and type2 boards
-Changed BHMSingle TOC indicator to also show coaches
+Changed bhmsingle TOC indicator to also show coaches
+Created bhmsingleold to retain old behaviour
+Added bhmarrivals board
+Added bhmspecial board

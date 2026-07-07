@@ -104,7 +104,20 @@ function topRight (arrival, time, ctx) {
 	if (phase < platTime) {
 		text = "Plat "+ arrival.platformName();
 	} else {
-		text = customPIDSUtil.delayIndicator(arrival);
+		let estDepTime = new Date(arrival.departureTime()); //Fetch time object of dept time and convert to date object
+		let estDepHrs = estDepTime.getHours();
+		let estDepMins = estDepTime.getMinutes();
+
+		let depDeviation = new Date(arrival.deviation());
+		let depDeviationMins = depDeviation.getMinutes();
+
+		let formatEstDepHrs = String(estDepHrs).padStart(2, "0");
+		let formatEstDepMins = String(estDepMins).padStart(2, "0");
+		text = "On Time";
+
+		if (depDeviationMins > 0) {
+			text = "Expt " + formatEstDepHrs + ":" + formatEstDepMins;
+		}
 	}
 
 	Text.create("Platform number")
@@ -193,21 +206,20 @@ function stopList (arrival, route, ctx, start, yOffset){
 function tocIndicator(ctx, arrival) {
 	let routeName = arrival.routeName();
 	let text = routeName.match(/\[(.*?)\]/); //Uses some stackoverflow regex magic to get text within square brackets
-	let coaches = arrival.cars().length; //Gets number of coaches of train
 	
-	if (text) {
+	if (text != null) {
 		text = text[1]; //Gets extracted TOC name from regex kerfuffle
 	} else {
 		text = "Minecraft Transit Rail";
 	}
 
-	Text.create("TOC/Formed of")
-		.text("This is a " + text + " service formed of " + coaches + " coaches.")
-		.pos(6, 137.2)
-		.size(102, 5.4)
-		.scale(0.6)
-		.marquee()
-		.font("minecraft:ukpids")
-		.color(0xff9900)
-		.draw(ctx);
+	Text.create("tocDisp")
+	.text(text)
+	.pos(6.1, 137.2)
+	.size(87.5, 5.4)
+	.marquee()
+	.scale(0.7)
+	.font("minecraft:luheavy")
+	.color(0xff9900)
+	.draw(ctx);
 }

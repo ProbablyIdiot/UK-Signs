@@ -59,14 +59,15 @@ function customText(ctx, pids) {
 	//max length = 25
 
 	let i = 0;
-	let msgArray = customMessage.match(/.{1,21}/g);
+	let msgArray = customMessage.match(/.{1,25}/g);
 
 	for (let i = 0; i <= 11; i++){
 		if (msgArray[i]) {
 			Text.create("Custom messages")
 				.text(msgArray[i])
-				.pos(6, 55.2 + (i * 7.5)) //Set row pos, 1s = outer margin, (i*15) = num of rows * row height 
+				.pos(38.5, 55.2 + (i * 7.5)) //Set row pos, 1s = outer margin, (i*15) = num of rows * row height 
 				.scale(0.6)
+				.centerAlign()
 				.font("minecraft:ukpids")
 				.color(0xff9900)
 				.draw(ctx);

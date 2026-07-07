@@ -109,5 +109,46 @@ const customPIDSUtil = {
 
 			// Final cleanup: keep only letters, numbers, spaces, and colons
 			.replace(/[^a-z0-9 :]/gi, '');
+	},
+	//Shows "On Time" or "Est xx:xx"
+	delayIndicator(arrival) {
+		let estDepTime = new Date(arrival.departureTime()); //Fetch time object of dept time and convert to date object
+		let estDepHrs = estDepTime.getHours();
+		let estDepMins = estDepTime.getMinutes();
+
+		let depDeviation = new Date(arrival.deviation());
+		let depDeviationMins = depDeviation.getMinutes();
+
+		let formatEstDepHrs = String(estDepHrs).padStart(2, "0");
+		let formatEstDepMins = String(estDepMins).padStart(2, "0");
+		text = "On Time";
+
+		if (depDeviationMins > 0) {
+			text = "Expt " + formatEstDepHrs + ":" + formatEstDepMins;
+		}
+
+		return text;
+	},
+	//Returns scheduled time of arrival
+	scheduledTime(arrival) {
+		let estDepTime = new Date(arrival.departureTime()); //Fetch time object of dept time and convert to date object
+		let estDepHrs = estDepTime.getHours();
+		let estDepMins = estDepTime.getMinutes();
+
+		let depDeviation = new Date(arrival.deviation());
+		let depDeviationHrs = depDeviation.getHours();
+		let depDeviationMins = depDeviation.getMinutes();
+
+		//Convert to string and add leading zeros
+		let schedueledDepHrs = String(estDepHrs).padStart(2, "0");
+		let schedueledDepMins = String(estDepMins).padStart(2, "0");
+
+		if (depDeviation > 0) {
+			//Remove deviation from estimated depature time, convert to string and add leading zeros
+			schedueledDepHrs = String(estDepHrs - depDeviationHrs).padStart(2, "0"); 
+			schedueledDepMins = String(estDepMins - depDeviationMins).padStart(2, "0");
+		}
+
+		return [schedueledDepHrs, schedueledDepMins];
 	}
 }

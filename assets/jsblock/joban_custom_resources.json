@@ -4,24 +4,43 @@
       "id": "bhmmulti",
       "name": "Bham New Str (Multiple Departures)",
       "scriptFiles": ["jsblock:scripts/bhmmulti.js"],
-	  "thumbnail": "jsblock:thumbnails/dep1.png",
-	  "blacklist": ["rv_pids","rv_pids_sil_1","rv_pids_sil_2","lcd_pids","pids_1a"]
+	  "blacklist": ["rv_pids","rv_pids_sil_1","rv_pids_sil_2","lcd_pids","pids_1a"],
+	  "thumbnail": ""
     },
-	
+	{
+      "id": "bhmarrivals",
+      "name": "Bham New Str (Arrivals)",
+      "scriptFiles": ["jsblock:scripts/bhmarrivals.js"],
+	  "blacklist": ["rv_pids","rv_pids_sil_1","rv_pids_sil_2","lcd_pids","pids_1a"],
+	  "thumbnail": ""
+    },
+	{
+      "id": "bhmsingleold",
+      "name": "Bham New Str (Single Departure OLD)",
+      "scriptFiles": ["jsblock:scripts/bhmsingleold.js"],
+	  "blacklist": ["rv_pids","rv_pids_sil_1","rv_pids_sil_2","lcd_pids","pids_1a"],
+	  "thumbnail": ""
+    },
 	{
       "id": "bhmsingle",
       "name": "Bham New Str (Single Departure)",
       "scriptFiles": ["jsblock:scripts/bhmsingle.js"],
 	  "blacklist": ["rv_pids","rv_pids_sil_1","rv_pids_sil_2","lcd_pids","pids_1a"],
-	  "thumbnail": "jsblock:thumbnails/dep2.png"
+	  "thumbnail": ""
     },
-
 	{
 		"id": "bhmspecial",
 		"name": "Bham New Str (Special Notices)",
 		"scriptFiles": ["jsblock:scripts/bhmspecial.js"],
 		"blacklist": ["rv_pids","rv_pids_sil_1","rv_pids_sil_2","lcd_pids","pids_1a"],
-	  	"thumbnail": "jsblock:thumbnails/dep2.png"
+	  	"thumbnail": ""
+	},
+	{
+		"id": "wmrplatform",
+		"name": "West Mids Rail (Platform Board)",
+		"scriptFiles": ["jsblock:scripts/wmrplatform.js"],
+		"blacklist": ["rv_pids","rv_pids_sil_1","rv_pids_sil_2","lcd_pids"],
+		"thumbnail": ""
 	}
   ]
 }
